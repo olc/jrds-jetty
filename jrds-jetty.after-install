@@ -12,13 +12,12 @@ mkdir -p /etc/jrds/{graphs,probes,hosts} \
          /var/lib/jrds/data \
          /var/log/jrds
 
-chown ${JRDS_USER} /etc/jrds/hosts
-chown -R ${JRDS_USER}:adm /var/lib/jrds \
-                          /var/log/jrds
+chmod 750 /etc/jrds \
+          /var/lib/jrds \
+          /var/log/jrds
 
-chmod 750 /var/lib/jrds \
-          /var/log/jrds \
-          /etc/jrds \
-          /etc/jrds/{graphs,probes,hosts}
+chown ${JRDS_USER}:root         /etc/jrds
+chown ${JRDS_USER}:${JRDS_USER} /var/lib/jrds
+chown ${JRDS_USER}:adm          /var/log/jrds
 
 systemctl enable jrds-jetty
