@@ -20,3 +20,5 @@ chmod 750 /var/lib/jrds \
           /var/log/jrds \
           /etc/jrds \
           /etc/jrds/{graphs,probes,hosts}
+
+systemctl jrds-jetty enable
