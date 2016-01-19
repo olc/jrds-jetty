@@ -1,0 +1,10 @@
+[Unit]
+Description=A high performance collector like cacti or munin.
+After=network.target
+
+[Service]
+# debug a probe that way: -Djrds.log.trace=jrds.Probe.dlinkAgentCPUutilization
+ExecStart=/usr/bin/java -DpropertiesFile=/etc/jrds/jrds.properties -Djetty.port=8080 -jar /usr/share/jrds/WEB-INF/lib/boot.jar
+
+[Install]
+WantedBy=multi-user.target
