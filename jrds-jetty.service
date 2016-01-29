@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=jrds
 # debug a probe that way: -Djrds.log.trace=jrds.Probe.dlinkAgentCPUutilization
-ExecStart=/usr/bin/java -DpropertiesFile=/etc/jrds/jrds.properties -Djetty.port=8080 -jar /usr/share/jrds/WEB-INF/lib/boot.jar
+ExecStart=/usr/bin/java -DpropertiesFile=/etc/jrds/jrds.properties -Djetty.port=8080 -Djetty.host=127.0.0.1 -jar /usr/share/jrds/WEB-INF/lib/boot.jar
 
 [Install]
 WantedBy=multi-user.target

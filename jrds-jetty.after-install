@@ -3,8 +3,9 @@
 JRDS_USER=jrds
 
 if ! id ${JRDS_USER} > /dev/null 2>&1 ; then
+  addgroup --quiet --system ${JRDS_USER}
   adduser --system --home /var/lib/jrds --no-create-home \
-          --ingroup nogroup --disabled-password --shell /usr/sbin/nologin \
+          --ingroup ${JRDS_USER} --disabled-password --shell /usr/sbin/nologin \
           ${JRDS_USER}
 fi
 
